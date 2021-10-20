@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "name": "Egg"
+  },
+  {
+    "id": 2,
+    "name": "Milk"
+  },
+  {
+    "id": 3,
+    "name": "Prosciutto"
+  },
+  {
+    "id": 4,
+    "name": "Tomato"
+  },
+  {
+    "id": 5,
+    "name": "Chocolate bar"
+  },
+  {
+    "id": 6,
+    "name": "Avocado"
+  },
+  {
+    "id": 7,
+    "name": "Beef"
+  },
+  {
+    "id": 8,
+    "name": "Salmon"
+  },
+  {
+    "id": 9,
+    "name": "Pizza"
+  },
+  {
+    "id": 10,
+    "name": "Yogurt"
+  },
+  {
+    "id": 11,
+    "name": "Muffin"
+  }
+]
