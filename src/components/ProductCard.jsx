@@ -20,9 +20,8 @@ const ProductCard = ({
           &#9733;
         </button>
 
-        <button onClick={() => onCart(!inCart)}>Add to Cart</button>
-
         {name}
+        <button onClick={() => onCart(!inCart)}>Add to Cart</button>
       </h4>
     </div>
   );

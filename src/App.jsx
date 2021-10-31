@@ -1,5 +1,7 @@
 // nei componenti jsx è necessario importare React
 import React from "react";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 // importiamo le sezioni/pagine
