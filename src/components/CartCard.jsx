@@ -10,8 +10,8 @@ const CartCard = ({ name, quantity, increaseQT, decreaseQT }) => {
       <h4>
         {name}
         <p>quantity: {quantity}</p>
-        <Button>-</Button>
-        <Button>+</Button>
+        <Button onClick={() => decreaseQT()}>-</Button>
+        <Button onClick={() => increaseQT()}>+</Button>
       </h4>
     </div>
   );

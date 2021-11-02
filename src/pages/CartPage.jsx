@@ -130,6 +130,22 @@ class CartPage extends React.Component {
                 key={index}
                 name={cartProduct.product.name}
                 quantity={cartProduct.quantity}
+                increaseQT={() => {
+                  editCartProduct({
+                    productId: cartProduct.id,
+                    quantity: cartProduct.quantity + 1,
+                  }).then((cartProducts) => {
+                    this.setState({ cartProducts });
+                  });
+                }}
+                decreaseQT={() => {
+                  editCartProduct({
+                    productId: cartProduct.id,
+                    quantity: cartProduct.quantity - 1,
+                  }).then((cartProducts) => {
+                    this.setState({ cartProducts });
+                  });
+                }}
               />
             );
           })}
