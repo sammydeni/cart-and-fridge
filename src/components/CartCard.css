@@ -1,0 +1,32 @@
+.cart-card {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  width: calc(25% - 40px);
+  margin: 20px;
+  padding: 20px;
+  flex: none;
+}
+
+.cart-card button {
+  border: none;
+  margin-right: 2px;
+  cursor: pointer;
+}
+
+@media (min-width: 2000px) {
+  .cart-card {
+    width: calc(25% - 40px);
+  }
+}
+
+@media (max-width: 800px) {
+  .cart-card {
+    width: calc(50% - 40px);
+  }
+}
+
+@media (max-width: 600px) {
+  .cart-card {
+    width: calc(100% - 40px);
+  }
+}

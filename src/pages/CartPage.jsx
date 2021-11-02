@@ -1,7 +1,9 @@
 // nei componenti jsx è necessario importare React
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
+import "./CartPage.css";
 import ProductCard from "../components/ProductCard";
+import CartCard from "../components/CartCard";
 import { getProducts, addFavourite, getFavourites } from "../api/products.api";
 import {
   getCartProducts,
@@ -16,7 +18,13 @@ class CartPage extends React.Component {
     // la riga super(props) è sempre presente
     super(props);
     // è fondamentale inizializzare lo stato
-    this.state = { products: [], favourites: [], show: false, loading: false };
+    this.state = {
+      cartProducts: [],
+      products: [],
+      favourites: [],
+      show: false,
+      loading: false,
+    };
   }
 
   handleModal() {
@@ -30,14 +38,17 @@ class CartPage extends React.Component {
         // poi chiamiamo l'API getFavourites
         getFavourites().then((favourites) => {
           // e infine salviamo le due risposte, aggiornando anche "loading"
-          this.setState({ products, favourites, loading: false });
+          this.setState({ products, favourites });
         });
+      });
+      getCartProducts().then((cartProducts) => {
+        this.setState({ cartProducts, loading: false });
       });
     });
   }
 
   render() {
-    const { products, favourites, loading } = this.state;
+    const { products, favourites, cartProducts, loading } = this.state;
     return (
       <div className="cart-page">
         <h1>Cart</h1>
@@ -63,12 +74,18 @@ class CartPage extends React.Component {
                 const isInFavourites = favourites.find(
                   (fav) => fav.product.id === product.id
                 );
+                // controllo se il prodotto è già nel carrello
+                const isInCart = cartProducts.find(
+                  (cartP) => cartP.id === product.id
+                );
+
                 // find ritorna il primo elemento che corrisponde alla condizione oppure undefined
                 return (
                   <ProductCard
                     key={index}
                     name={product.name}
                     isFavourite={!!isInFavourites}
+                    inCart={!!isInCart}
                     onFavourite={(isFavourite) => {
                       // "isFavourite" è un booleano controllato da ProductCard
                       // chiamiamo l'API per aggiungere il preferito
@@ -78,6 +95,14 @@ class CartPage extends React.Component {
                       }).then((favourites) => {
                         // aggiorniamo la lista dei preferiti
                         this.setState({ favourites });
+                      });
+                    }}
+                    onCart={() => {
+                      addCartProduct({
+                        productId: product.id,
+                        quantity: 1,
+                      }).then((cartProducts) => {
+                        this.setState({ cartProducts });
                       });
                     }}
                   />
@@ -99,8 +124,15 @@ class CartPage extends React.Component {
         <div className="cart-container">
           {/* Nella riga seguente facciamo apparire un messaggio solo se loading=true */}
           {loading && <p>Loading...</p>}
-          {/* completare la pagina */}
-          TODO
+          {cartProducts.map((cartProduct, index) => {
+            return (
+              <CartCard
+                key={index}
+                name={cartProduct.product.name}
+                quantity={cartProduct.quantity}
+              />
+            );
+          })}
         </div>
       </div>
     );

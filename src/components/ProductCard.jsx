@@ -6,8 +6,8 @@ const ProductCard = ({
   name,
   onFavourite,
   isFavourite = false,
-  onCart,
   inCart = false,
+  onCart,
 }) => {
   return (
     <div className="product-card">
