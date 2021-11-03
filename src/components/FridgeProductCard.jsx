@@ -1,13 +1,14 @@
 import React from "react";
 import "./ProductCard.css";
+import { Button } from "react-bootstrap";
 
 // ProductCard è un componente funzionale che riceve come props "name" e "onFavourite"
-const ProductCard = ({
+const FridgeProductCard = ({
   name,
   onFavourite,
   isFavourite = false,
-  inCart = false,
-  onCart,
+  inFridge = false,
+  onFridge,
 }) => {
   return (
     <div className="product-card">
@@ -21,16 +22,17 @@ const ProductCard = ({
         </button>
 
         {name}
-        <button
+        <Button
+          className="mt-2"
           onClick={() => {
-            onCart();
+            onFridge();
           }}
         >
-          Add to Cart
-        </button>
+          Add to Fridge
+        </Button>
       </h4>
     </div>
   );
 };
 
-export default ProductCard;
+export default FridgeProductCard;

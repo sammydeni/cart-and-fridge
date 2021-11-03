@@ -146,6 +146,14 @@ class CartPage extends React.Component {
                     this.setState({ cartProducts });
                   });
                 }}
+                deleteCartP={() => {
+                  editCartProduct({
+                    productId: cartProduct.id,
+                    quantity: 0,
+                  }).then((cartProducts) => {
+                    this.setState({ cartProducts });
+                  });
+                }}
               />
             );
           })}
