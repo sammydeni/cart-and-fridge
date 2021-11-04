@@ -6,7 +6,7 @@ import ProductCardMain from "../components/ProductCardMain";
 
 // importiamo le API
 import { getProducts, addFavourite, getFavourites } from "../api/products.api";
-
+import { addCartProduct } from "../api/cart.api";
 // il seguente Mock JSON non serve più dopo aver agganciato l'API
 // import productsMock from "./mock/products.json";
 
@@ -69,6 +69,12 @@ class ProductPage extends React.Component {
                       this.setState({ favourites });
                     }
                   );
+                }}
+                onCart={() => {
+                  addCartProduct({
+                    productId: product.id,
+                    quantity: 1,
+                  });
                 }}
               />
             );

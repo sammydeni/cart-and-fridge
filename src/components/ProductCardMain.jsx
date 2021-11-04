@@ -7,6 +7,7 @@ const ProductCardMain = ({
   name,
   onFavourite,
   isFavourite = false,
+  onCart,
   //inCart = false,
 }) => {
   return (
@@ -20,7 +21,12 @@ const ProductCardMain = ({
           &#9733;
         </button>
         {name} &nbsp; &nbsp;
-        <Button className="mt-2" onClick={() => {}}>
+        <Button
+          className="mt-2"
+          onClick={() => {
+            onCart();
+          }}
+        >
           Add To Cart
         </Button>
       </h4>
