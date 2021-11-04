@@ -1,5 +1,8 @@
 // nei componenti jsx è necessario importare React
 import React from "react";
+import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -13,9 +16,14 @@ import CartPage from "./pages/CartPage";
 const App = () => {
   return (
     <div className="app">
-      <ProductPage />
-      <FridgePage />
-      <CartPage />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" exact element={<ProductPage />} />
+          <Route path="/fridge" element={<FridgePage />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 };
