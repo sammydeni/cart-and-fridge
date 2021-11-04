@@ -56,7 +56,7 @@ class FridgePage extends React.Component {
         <h1>Fridge</h1>
 
         <Button
-          className="btn-success"
+          className="btn-success btn-lg"
           onClick={() => {
             this.handleModal();
           }}

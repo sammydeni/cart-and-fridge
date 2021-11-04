@@ -5,6 +5,7 @@
   margin: 20px;
   padding: 20px;
   flex: none;
+  background-color: white;
 }
 
 .cart-card button {

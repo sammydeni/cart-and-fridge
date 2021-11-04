@@ -1,9 +1,7 @@
 // nei componenti jsx è necessario importare React
 import React from "react";
-
 // importiamo il componente ProductCard
 import ProductCardMain from "../components/ProductCardMain";
-
 // importiamo le API
 import { getProducts, addFavourite, getFavourites } from "../api/products.api";
 import { addCartProduct } from "../api/cart.api";

@@ -11,7 +11,7 @@ const ProductCard = ({
   onCart,
 }) => {
   return (
-    <div className="product-card">
+    <div className="product-card" style={{ "text-align": "center" }}>
       <h4>
         <button
           onClick={() => onFavourite(!isFavourite)}

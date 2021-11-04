@@ -11,7 +11,7 @@ const FridgeProductCard = ({
   onFridge,
 }) => {
   return (
-    <div className="product-card">
+    <div className="product-card" style={{ "text-align": "center" }}>
       <h4>
         <button
           onClick={() => onFavourite(!isFavourite)}
@@ -23,7 +23,7 @@ const FridgeProductCard = ({
 
         {name}
         <Button
-          className="mt-2"
+          className="mt-2 btn-lg"
           onClick={() => {
             onFridge();
           }}

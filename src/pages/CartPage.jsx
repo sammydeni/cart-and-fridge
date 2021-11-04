@@ -55,6 +55,7 @@ class CartPage extends React.Component {
         <h1>Cart</h1>
 
         <Button
+          className="btn-lg"
           onClick={() => {
             this.handleModal();
           }}

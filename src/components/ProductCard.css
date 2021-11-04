@@ -3,12 +3,14 @@ h1 {
 }
 
 .product-card {
-  border: 1px solid #eee;
+  border: 1px solid #7765e3;
   border-radius: 5px;
   width: calc(25% - 40px);
   margin: 20px;
   padding: 20px;
   flex: none;
+  background-color: #7765e3;
+  box-shadow: rgba(46, 44, 44, 0.35) 0px 5px 15px;
 }
 
 .product-card button {
