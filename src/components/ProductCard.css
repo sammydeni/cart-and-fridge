@@ -1,3 +1,7 @@
+h1 {
+  text-align: center;
+}
+
 .product-card {
   border: 1px solid #eee;
   border-radius: 5px;

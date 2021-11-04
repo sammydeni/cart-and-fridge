@@ -7,7 +7,7 @@ const FridgeProductCard = ({
   name,
   onFavourite,
   isFavourite = false,
-  inFridge = false,
+  //inFridge = false,
   onFridge,
 }) => {
   return (

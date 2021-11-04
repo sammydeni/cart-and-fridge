@@ -11,6 +11,7 @@ import {
   addFridgeProduct,
   editFridgeProduct,
 } from "../api/fridge.api";
+import { orderBy } from "lodash";
 
 class FridgePage extends React.Component {
   // FridgePage è un componente di classe
@@ -49,6 +50,7 @@ class FridgePage extends React.Component {
 
   render() {
     const { products, favourites, fridgeProducts, loading } = this.state;
+
     return (
       <div className="fridge-page">
         <h1>Fridge</h1>
@@ -125,39 +127,41 @@ class FridgePage extends React.Component {
         <div className="cart-container">
           {/* Nella riga seguente facciamo apparire un messaggio solo se loading=true */}
           {loading && <p>Loading...</p>}
-          {fridgeProducts.map((fridgeProduct, index) => {
-            return (
-              <FridgeCard
-                key={index}
-                name={fridgeProduct.product.name}
-                quantity={fridgeProduct.quantity}
-                increaseQT={() => {
-                  editFridgeProduct({
-                    productId: fridgeProduct.id,
-                    quantity: fridgeProduct.quantity + 1,
-                  }).then((fridgeProducts) => {
-                    this.setState({ fridgeProducts });
-                  });
-                }}
-                decreaseQT={() => {
-                  editFridgeProduct({
-                    productId: fridgeProduct.id,
-                    quantity: fridgeProduct.quantity - 1,
-                  }).then((fridgeProducts) => {
-                    this.setState({ fridgeProducts });
-                  });
-                }}
-                deleteFridgeP={() => {
-                  editFridgeProduct({
-                    productId: fridgeProduct.id,
-                    quantity: 0,
-                  }).then((fridgeProducts) => {
-                    this.setState({ fridgeProducts });
-                  });
-                }}
-              />
-            );
-          })}
+          {orderBy(fridgeProducts, "product.name").map(
+            (fridgeProduct, index) => {
+              return (
+                <FridgeCard
+                  key={index}
+                  name={fridgeProduct.product.name}
+                  quantity={fridgeProduct.quantity}
+                  increaseQT={() => {
+                    editFridgeProduct({
+                      productId: fridgeProduct.id,
+                      quantity: fridgeProduct.quantity + 1,
+                    }).then((fridgeProducts) => {
+                      this.setState({ fridgeProducts });
+                    });
+                  }}
+                  decreaseQT={() => {
+                    editFridgeProduct({
+                      productId: fridgeProduct.id,
+                      quantity: fridgeProduct.quantity - 1,
+                    }).then((fridgeProducts) => {
+                      this.setState({ fridgeProducts });
+                    });
+                  }}
+                  deleteFridgeP={() => {
+                    editFridgeProduct({
+                      productId: fridgeProduct.id,
+                      quantity: 0,
+                    }).then((fridgeProducts) => {
+                      this.setState({ fridgeProducts });
+                    });
+                  }}
+                />
+              );
+            }
+          )}
         </div>
       </div>
     );

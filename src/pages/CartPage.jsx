@@ -10,6 +10,7 @@ import {
   addCartProduct,
   editCartProduct,
 } from "../api/cart.api";
+import { orderBy } from "lodash";
 
 class CartPage extends React.Component {
   // CartPage è un componente di classe
@@ -124,7 +125,7 @@ class CartPage extends React.Component {
         <div className="cart-container">
           {/* Nella riga seguente facciamo apparire un messaggio solo se loading=true */}
           {loading && <p>Loading...</p>}
-          {cartProducts.map((cartProduct, index) => {
+          {orderBy(cartProducts, "product.name").map((cartProduct, index) => {
             return (
               <CartCard
                 key={index}

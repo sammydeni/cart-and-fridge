@@ -2,7 +2,7 @@
 import React from "react";
 
 // importiamo il componente ProductCard
-import ProductCard from "../components/ProductCard";
+import ProductCardMain from "../components/ProductCardMain";
 
 // importiamo le API
 import { getProducts, addFavourite, getFavourites } from "../api/products.api";
@@ -56,7 +56,7 @@ class ProductPage extends React.Component {
             );
             // find ritorna il primo elemento che corrisponde alla condizione oppure undefined
             return (
-              <ProductCard
+              <ProductCardMain
                 key={index}
                 name={product.name}
                 isFavourite={!!isInFavourites}
