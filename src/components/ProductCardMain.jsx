@@ -2,13 +2,11 @@ import React from "react";
 import "./ProductCard.css";
 import { Button } from "react-bootstrap";
 
-// ProductCard è un componente funzionale che riceve come props "name" e "onFavourite"
 const ProductCardMain = ({
   name,
   onFavourite,
   isFavourite = false,
   onCart,
-  //inCart = false,
 }) => {
   return (
     <div className="product-card" style={{ "text-align": "center" }}>

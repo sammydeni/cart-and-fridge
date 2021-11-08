@@ -3,8 +3,6 @@ import { BsTrashFill } from "react-icons/bs";
 import "./FridgeCard.css";
 import { Button } from "react-bootstrap";
 
-// creo un componente per gestire i prodotti nel carrello e la loro quantità
-
 const FridgeCard = ({
   name,
   quantity,

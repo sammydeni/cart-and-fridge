@@ -13,12 +13,9 @@ import {
 import { orderBy } from "lodash";
 
 class CartPage extends React.Component {
-  // CartPage è un componente di classe
-  // è necessario specificare sempre il costruttore se c'è uno stato
   constructor(props) {
-    // la riga super(props) è sempre presente
     super(props);
-    // è fondamentale inizializzare lo stato
+
     this.state = {
       cartProducts: [],
       products: [],
@@ -34,11 +31,8 @@ class CartPage extends React.Component {
 
   componentDidMount() {
     this.setState({ loading: true }, () => {
-      // poi chiamiamo l'API getProducts
       getProducts().then((products) => {
-        // poi chiamiamo l'API getFavourites
         getFavourites().then((favourites) => {
-          // e infine salviamo le due risposte, aggiornando anche "loading"
           this.setState({ products, favourites });
         });
       });
@@ -66,22 +60,16 @@ class CartPage extends React.Component {
           <Modal.Header style={{ color: "white" }}>Products List</Modal.Header>
           <Modal.Body>
             <div className="products-container">
-              {/* Nella riga seguente facciamo apparire un messaggio solo se loading=true */}
               {loading && <p>Loading...</p>}
-              {/* Nelle righe seguenti cicliamo all'interno dell'array products, ritornando il componente ProductCard per ogni elemento */}
               {products.map((product, index) => {
-                // quando si cicla un array e si ritorna un qualsiasi componente, va specificata la props "key"
-                // che deve essere valorizzata come univoca (per questo qui utilizziamo l'index dell'array)
-                // innanzitutto controlliamo se il prodotto attuale sia nei preferiti
                 const isInFavourites = favourites.find(
                   (fav) => fav.product.id === product.id
                 );
-                // controllo se il prodotto è già nel carrello
+
                 const isInCart = cartProducts.find(
                   (cartP) => cartP.id === product.id
                 );
 
-                // find ritorna il primo elemento che corrisponde alla condizione oppure undefined
                 return (
                   <ProductCard
                     key={index}
@@ -89,13 +77,10 @@ class CartPage extends React.Component {
                     isFavourite={!!isInFavourites}
                     inCart={!!isInCart}
                     onFavourite={(isFavourite) => {
-                      // "isFavourite" è un booleano controllato da ProductCard
-                      // chiamiamo l'API per aggiungere il preferito
                       addFavourite({
                         productId: product.id,
                         isFavourite,
                       }).then((favourites) => {
-                        // aggiorniamo la lista dei preferiti
                         this.setState({ favourites });
                       });
                     }}
@@ -124,7 +109,6 @@ class CartPage extends React.Component {
         </Modal>
 
         <div className="cart-container">
-          {/* Nella riga seguente facciamo apparire un messaggio solo se loading=true */}
           {loading && <p>Loading...</p>}
           {orderBy(cartProducts, "product.name").map((cartProduct, index) => {
             return (

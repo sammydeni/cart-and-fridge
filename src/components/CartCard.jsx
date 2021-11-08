@@ -3,8 +3,6 @@ import { BsTrashFill } from "react-icons/bs";
 import "./CartCard.css";
 import { Button } from "react-bootstrap";
 
-// creo un componente per gestire i prodotti nel carrello e la loro quantità
-
 const CartCard = ({ name, quantity, increaseQT, decreaseQT, deleteCartP }) => {
   return (
     <div className="cart-card">

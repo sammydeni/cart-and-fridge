@@ -2,12 +2,10 @@ import React from "react";
 import "./ProductCard.css";
 import { Button } from "react-bootstrap";
 
-// ProductCard è un componente funzionale che riceve come props "name" e "onFavourite"
 const FridgeProductCard = ({
   name,
   onFavourite,
   isFavourite = false,
-  //inFridge = false,
   onFridge,
 }) => {
   return (
