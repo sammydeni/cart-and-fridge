@@ -11,10 +11,7 @@ const ProductCardMain = ({
   //inCart = false,
 }) => {
   return (
-    <div
-      className="product-card"
-      style={{ "text-align": "center", color: "black" }}
-    >
+    <div className="product-card" style={{ "text-align": "center" }}>
       <h4>
         <button
           onClick={() => onFavourite(!isFavourite)}
@@ -28,7 +25,7 @@ const ProductCardMain = ({
           style={{
             display: "block",
             margin: "0 auto",
-            color: "black",
+            color: "white",
           }}
           className="mt-2 btn-lg"
           onClick={() => {

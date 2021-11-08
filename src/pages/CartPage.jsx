@@ -55,7 +55,7 @@ class CartPage extends React.Component {
         <h1>Cart</h1>
 
         <Button
-          className="btn-lg"
+          className="btn-lg openBtn"
           onClick={() => {
             this.handleModal();
           }}
@@ -63,7 +63,7 @@ class CartPage extends React.Component {
           Open Products List
         </Button>
         <Modal show={this.state.show} size="xl">
-          <Modal.Header>Products List</Modal.Header>
+          <Modal.Header style={{ color: "white" }}>Products List</Modal.Header>
           <Modal.Body>
             <div className="products-container">
               {/* Nella riga seguente facciamo apparire un messaggio solo se loading=true */}

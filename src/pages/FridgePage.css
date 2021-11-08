@@ -3,3 +3,11 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.modal-content {
+  background-color: #1e2749;
+}
+
+.openBtn {
+  margin-left: 20px;
+}
